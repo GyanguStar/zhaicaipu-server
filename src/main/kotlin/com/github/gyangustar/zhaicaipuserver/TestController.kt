@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 class TestController {
+
     @RequestMapping("/ping")
     fun pingController() : String {
         return "pong"
     }
+
     @GetMapping("/user")
     fun user(@AuthenticationPrincipal principal: Jwt): Map<String, Any>{
         return principal.claims
